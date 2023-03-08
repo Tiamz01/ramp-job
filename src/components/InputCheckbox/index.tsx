@@ -4,9 +4,16 @@ import { InputCheckboxComponent } from "./types"
 
 export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, disabled, onChange }) => {
   const { current: inputId } = useRef(`RampInputCheckbox-${id}`)
+  const change = () => {
+    console.log("clcik ")
+  }
 
   return (
-    <div className="RampInputCheckbox--container" data-testid={inputId}>
+    <div
+      onClick={() => onChange(!checked)}
+      className="RampInputCheckbox--container"
+      data-testid={inputId}
+    >
       <label
         className={classNames("RampInputCheckbox--label", {
           "RampInputCheckbox--label-checked": checked,
@@ -19,7 +26,7 @@ export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, dis
         className="RampInputCheckbox--input"
         checked={checked}
         disabled={disabled}
-        onChange={() => onChange(!checked)}
+        onChange={() => onChange(checked)}
       />
     </div>
   )

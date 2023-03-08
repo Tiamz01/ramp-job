@@ -127,5 +127,5 @@ const getDropdownPosition: GetDropdownPositionFn = (target) => {
     }
   }
 
-  return { top: 0, left: 0 }
+  return { top: 5, left: 0 }
 }
